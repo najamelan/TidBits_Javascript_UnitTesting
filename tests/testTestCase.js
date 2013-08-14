@@ -31,10 +31,12 @@ if( 'undefined' !== typeof module )
 }
 
 
-;( function( namespace )
+;( function class_Test_TestCase( namespace )
 {
 
 'use strict';
+
+if( namespace[ "Test_TestCase" ] ) return
 
     namespace.Test_TestCase = Test_TestCase
 var Static                  = TidBits.OoJs.setupClass( namespace, "Test_TestCase", "TestCase" )
