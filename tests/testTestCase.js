@@ -218,7 +218,9 @@ if( 'undefined' !== typeof module )
 	var test = new TidBits.Test_TestCase();
 	console.log( test.getResults() );
 
-	process.exit( test.getTestsFailedCount() );
+	if( test.getTestsFailedCount() )
+
+		process.exit( test.getTestsFailedCount() );
 }
 
 
