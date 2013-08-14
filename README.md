@@ -18,13 +18,13 @@ The easiest way to include this in your project is by adding either TidBits Java
 
 So, either:
 
-```shell
+```bash
 git submodule add git@github.com:najamelan/TidBits_Javascript.git includes/tidbitsJavaScript
 ```
 
 or:
 
-```shell
+```bash
 mkdir includes
 git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git includes/OoJs
 git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git includes/UnitTesting
@@ -34,7 +34,7 @@ git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git in
 
 If you are using Nodejs, run the unit tests:
 
-```shell
+```bash
 cd includes/unitTesting
 node tests/testTestCase
 ```
