@@ -14,7 +14,7 @@ Runs on both Nodejs and Browsers, uses only standard ES5, although testing has o
 
 ## Installation
 
-Easiest way to include this in your project is by adding either TidBits Javascript as a submodule to your repository or if you don't want everything, just make TidBits UnitTesting and TidBits OoJs submodules in the same directory (eg. tidbits).
+The easiest way to include this in your project is by adding either TidBits Javascript as a submodule to your repository or if you don't want everything, just make TidBits UnitTesting and TidBits OoJs submodules in the same directory (eg. tidbits).
 
 So, either:
 
