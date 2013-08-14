@@ -18,15 +18,14 @@ The easiest way to include this in your project is by adding either TidBits Java
 
 So, either:
 
-```bash
-git submodule add git@github.com:najamelan/TidBits_Javascript.git includes/tidbitsJavaScript
-```
+Check the [installation instructions of the TidBits Javascript Library](https://github.com/najamelan/TidBits_Javascript#installation)
+
 
 or:
 
 ```bash
 mkdir includes
-git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git includes/OoJs
+git submodule add git@github.com:najamelan/TidBits_Javascript_OoJs.git includes/OoJs
 git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git includes/UnitTesting
 ```
 
@@ -35,13 +34,11 @@ git submodule add git@github.com:najamelan/TidBits_Javascript_UnitTesting.git in
 If you are using Nodejs, run the unit tests:
 
 ```bash
-cd includes/unitTesting
-node tests/testTestCase
+cd includes/UnitTesting
+node tests/testTestCase.js
 ```
 
-If you want to test if it works in your browser, open the file *includes/tests/test.htm*
-
-This should output the test results.
+If you want to test if it works in your browser, open the file **tests/test.htm**
 
 ## Usage
 
