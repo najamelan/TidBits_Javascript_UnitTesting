@@ -26,8 +26,7 @@ var TidBits = TidBits || {} // our namespace
 
 if( 'undefined' !== typeof module )
 {
-	TidBits.TestCase = require( '../TestCase.js'     ).TestCase
-	TidBits.OoJs     = require( '../../OoJs/oojs.js' ).OoJs
+	TidBits = require( '../TestCase.js' )
 }
 
 
@@ -39,9 +38,9 @@ if( 'undefined' !== typeof module )
 if( namespace[ "Test_TestCase" ] ) return
 
     namespace.Test_TestCase = Test_TestCase
-var Static                  = TidBits.OoJs.setupClass( namespace, "Test_TestCase", "TestCase" )
+var Static                  = TidBits.OoJs.setupClass( namespace, "Test_TestCase", { inherit: "TestCase", as: "public" } )
 
-
+Static.Public()
 
 
 function Test_TestCase()
@@ -61,7 +60,7 @@ function Test_TestCase()
 	)
 
 
-	return this.Public( "assertTrue", "assertFalse" )
+	return this.Public( "TestCase.assertTrue", "TestCase.assertFalse" )
 }
 
 

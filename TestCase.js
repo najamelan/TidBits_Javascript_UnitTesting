@@ -1,7 +1,7 @@
-/// \file  TidBits_Javascript/tidbits/unitTesting/TestCase.js
-/// \brief Unit test code for TestCase
+/// \file  TidBits_Javascript/UnitTesting/TestCase.js
+/// \brief TestCase class to subclass for creating tests
 
-/** \file  TidBits_Javascript/tidbits/unitTesting/TestCase.js
+/** \file  TidBits_Javascript/UnitTesting/TestCase.js
  *
  *  Header file needed to create unit tests
  *  Inspired by code from the Flood3 Library by Roberto Lopez.
@@ -16,7 +16,7 @@
  *
  * Usage:
  *
- * For an example, have a look at ./testTestCase.js
+ * For an example, have a look at tests/testTestCase.js
  *
  * 1. Subclass this to create a unit test case.
  *
@@ -36,7 +36,7 @@ var TidBits = TidBits || {} // our namespace
 
 if( 'undefined' !== typeof module )
 {
-	TidBits.OoJs = require( '../OoJs/oojs.js' ).OoJs
+	TidBits = require( '../OoJs/oojs.js' )
 }
 
 
@@ -50,6 +50,8 @@ if( namespace[ "TestCase" ] ) return
 
     namespace.TestCase = TestCase
 var Static             = TidBits.OoJs.setupClass( namespace, "TestCase" )
+
+Static.Public( assert )
 
 
 function TestCase()
@@ -90,8 +92,6 @@ function TestCase()
 
 			// methods
 			//
-
-
 		,  setTestsCount
 		,  setTestsPassedCount
 		,  setTestsFailedCount
@@ -125,9 +125,9 @@ function TestCase()
 //
 function assert( condition, message )
 {
-	if( ! condition )
+	if( !condition )
 	{
-		throw message || "Assertion failed";
+		throw new Error( message || "Assertion failed" )
 	}
 }
 
@@ -135,44 +135,19 @@ function assert( condition, message )
 // Instance Methods
 // ================
 
-/// This method returns the number of tests which have been performed by the test case.
+/// Getters
 //
-function getTestsCount()
-{
-	return this.testsCount
-}
+function getTestsCount      (){ return this.testsCount       }
+function getTestsPassedCount(){ return this.testsPassedCount }
+function getTestsFailedCount(){ return this.testsFailedCount }
+function getMessage         (){ return this.message          }
+function getDisplay         (){ return this.display          }
 
 
-/// This method returns the number of tests which have passed the test case.
+/// Simple setters
 //
-function getTestsPassedCount()
-{
-	return this.testsPassedCount
-}
-
-
-/// This method returns the number of tests which have failed the test case.
-//
-function getTestsFailedCount()
-{
-	return this.testsFailedCount
-}
-
-
-/// This method returns a reference to the test case information message.
-//
-function getMessage()
-{
-	return this.message
-}
-
-
-/// This method returns the display messages to the screen value of this object.
-//
-function getDisplay()
-{
-	return this.display
-}
+function setMessage( newMessage ){ this.message = newMessage }
+function setDisplay( newDisplay ){ this.display = newDisplay }
 
 
 /// This method sets a new value for the number of tests performed by the test case.
@@ -180,7 +155,7 @@ function getDisplay()
 //
 function setTestsCount( newTestsCount )
 {
-	assert( newTestsCount >= 0 )
+	assert( newTestsCount >= 0, "Can't set testsCount to a negative number: " + newTestsCount )
 
 	this.testsCount = newTestsCount
 }
@@ -191,7 +166,7 @@ function setTestsCount( newTestsCount )
 //
 function setTestsPassedCount( newTestsPassedCount )
 {
-	assert( newTestsPassedCount >= 0, "Can't set TestsPassedCount to a negative number: " + newTestsPassedCount )
+	assert( newTestsPassedCount >= 0, "Can't set testsPassedCount to a negative number: " + newTestsPassedCount )
 
 	this.testsPassedCount = newTestsPassedCount
 }
@@ -202,28 +177,12 @@ function setTestsPassedCount( newTestsPassedCount )
 //
 function setTestsFailedCount( newTestsFailedCount )
 {
-	assert( newTestsFailedCount >= 0, "Can't set TestsFailedCount to a negative number: " + newTestsFailedCount )
+	assert( newTestsFailedCount >= 0, "Can't set testsFailedCount to a negative number: " + newTestsFailedCount )
 
 	this.testsFailedCount = newTestsFailedCount
 }
 
 
-/// This method sets a new test case information message.
-/// @param new_message Information message.
-//
-function setMessage( newMessage )
-{
-	this.message = newMessage
-}
-
-
-/// This method sets a new display value to this object.
-/// @param new_display Display value.
-//
-function setDisplay( newDisplay )
-{
-	this.display = newDisplay
-}
 
 
 /// This method checks that a condition is true.
@@ -277,6 +236,7 @@ function assertFalse( condition, message )
 //
 function getResults()
 {
+
 	this.runTestCase();
 
 	var result
@@ -323,7 +283,5 @@ function runTestCase()
 
 if( 'undefined' !== typeof module )
 
-	module.exports.TestCase = TidBits.TestCase
-
+	module.exports = TidBits
 ;
-
