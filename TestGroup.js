@@ -204,7 +204,7 @@ function getResults()
 		summary += '\nTest Case Group NOT OK ― ' +  this.testsFailedCount + ' tests failed'
 
 
-	return summary + '\n=================================\n' + this.message + '\n=================================\n' + summary
+	return this.message + '\n=================================\n' + summary
 }
 
 
