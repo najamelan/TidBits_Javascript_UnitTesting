@@ -1,6 +1,14 @@
 TidBits Javascript - UnitTesting
 ================================
 
+<aside class="warning">
+
+We can now compile [rust to web assembly](https://youtu.be/TwuIRcpeUWE). As far as I'm concerned JavaScript is now dead, buried and forgotten. I finally woke up from a very long nightmare of being locked into Js by browsers.
+
+Anyway, this never reached stable. I couldn't advise you on using JavaScript, but there's a lot of people that created programming languages for the sole purpose of not having to write Js directly, and if I'm not mistaking, [TypeScript](https://www.typescriptlang.org/) probably can do for you what this library did and surely much more too...
+
+</aside>
+
 Lightweight Unit testing framework for Javascript, part of the [TidBits Javascript Library](https://github.com/najamelan/TidBits_Javascript).
 
 Provides a very simple Object Oriented unit testing class **TestCase** allowing you to unit test JavaScript code.
